@@ -125,8 +125,10 @@
   
 
 
-EXTRA STEP
-        make sure your container is built and running (users OR notifications service)
+EXTRA STEP (this is not required)
+
+- you will only do this if you dont have composer installed in your machine.
+- make sure your container is built and running (users OR notifications service)
         
         1.0 :
         
