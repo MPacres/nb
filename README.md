@@ -1,21 +1,24 @@
 # sample app using symfony and message broker (rabbitmq)
-goal
-create a post request in users service /users
-post request contains firstName,lastName,email in the body
-request data will be inserted in the users table
-request data will be sent in the message broker (rabbitmq)
-queued message will be consume by the notifications service
-consumed message will be written in log file (file_from_users${unixtimestamp}.log)
+* goal
+* create a post request in users service /users
+* post request contains firstName,lastName,email in the body
+* request data will be inserted in the users table
+* request data will be sent in the message broker (rabbitmq)
+* queued message will be consume by the notifications service
+* consumed message will be written in log file (file_from_users${unixtimestamp}.log)
 
 # How to run the app
-open terminal navigate to project root directory
-run ls : files inside the root directory should be
+- open terminal navigate to project root directory
+- run ls : files inside the root directory should be
+
         - Makefile
         - messages
         - users
         - notifications
-run "make build-all" : this will build all the docker containers then run supervisord.conf
-after build is complete run "make start-selected" : this will run all the docker containers in your local machine
+        
+- run "make build-all" : this will build all the docker containers then run supervisord.conf
+
+- after build is complete run "make start-selected" : this will run all the docker containers in your local machine
 
 
 # Important
@@ -45,14 +48,14 @@ after build is complete run "make start-selected" : this will run all the docker
      - restart docker container
 
  # Testing the functionality
- 
-  users service: 
-  
-   - open postman
-   - create a POST request
-   - http://localhost:8080/usershttp://localhost:8080/users
-   - request body {"email":"sampleemail@zxc.com", "firstName": "thisIsFirstName", "lastName":"thisIsLastName"}
-   - send request
+
+  users service:
+
+        - open postman
+        - create a POST request
+        - http://localhost:8080/usershttp://localhost:8080/users
+        - request body {"email":"sampleemail@zxc.com", "firstName": "thisIsFirstName", "lastName":"thisIsLastName"}
+        - send request
 
   validate if data is saved in the database:
   
