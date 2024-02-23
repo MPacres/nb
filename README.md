@@ -15,6 +15,12 @@
         - messages
         - users
         - notifications
+
+ - cd users
+ - run "composer install" 
+ - cd ..
+ - cd notifications
+ - run "composer install" 
         
 - run "make build-all" : this will build all the docker containers then run supervisord.conf
 
