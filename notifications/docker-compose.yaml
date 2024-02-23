@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    ports:
+      - "8081:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=message
+      - RABBITMQ_PASSWORD=message
+    networks:
+      - messages_mynetwork
+
+networks:
+  messages_mynetwork:
+    external: true
+    name: messages_mynetwork

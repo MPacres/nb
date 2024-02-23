@@ -1,0 +1,6 @@
+framework:
+    messenger:
+        transports:
+            amqp: 'amqp://messages:messages@localhost:5672/%2f/messages'
+        routing:
+            'App\Message\YourMessage': amqp

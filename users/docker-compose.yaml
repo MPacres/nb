@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=message
+      - RABBITMQ_PASSWORD=message
+    networks:
+      - messages_mynetwork
+
+  database:
+    platform: linux/x86_64
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: users
+      MYSQL_USER: assessment
+      MYSQL_PASSWORD: assessment
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - '3306:3306'
+    command: ["--bind-address=0.0.0.0"]
+    networks:
+      - messages_mynetwork
+
+networks:
+  messages_mynetwork:
+    external: true
+    name: messages_mynetwork
