@@ -16,8 +16,6 @@ notifications-build:
 users-build:
 	@$(MAKE) -C users build-users
 
-
-#do not use this. supervisord.conf is not working :(
 users:
 	@$(MAKE) -C users run-users
 
