@@ -20,11 +20,14 @@ after build is complete run "make start-selected" : this will run all the docker
 
 # Important
   supervisord.conf might not run in your container (permission issue,etc...)
+
   supervisord.conf is required for notifications and users service
+  
     - consume worker (notifications service)
     - PHP:migrate (users service)
 
-  1.0 : if supervisord.conf fails in users service
+  1.0: if supervisord.conf fails in users service
+  
      - open terminal
      - go to root directory
      - cd users
@@ -33,6 +36,7 @@ after build is complete run "make start-selected" : this will run all the docker
      - restart docker container
  
   2.0 : if supervisord.conf fails in notifications service
+  
      - open terminal
      - go to root directory
      - cd notifications
@@ -42,10 +46,11 @@ after build is complete run "make start-selected" : this will run all the docker
 
  # Testing the functionality
  
- users service : 
+  users service: 
+  
    - open postman
    - create a POST request
-   - http://localhost:8080/users
+   - http://localhost:8080/usershttp://localhost:8080/users
    - request body {"email":"sampleemail@zxc.com", "firstName": "thisIsFirstName", "lastName":"thisIsLastName"}
    - send request
 
