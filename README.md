@@ -68,8 +68,6 @@
   validate if data is sent in the message broker:
   
     - open browser type "http://localhost:15672/"
-    <img width="1107" alt="Screenshot 2024-02-23 at 5 37 01 PM" src="https://github.com/MPacres/nb/assets/75495135/6f7c0d74-7815-49ba-a407-c900a2953bf0">
-
     - login credentials is in "users/docker-compose.yaml" or username:message, password:message, host:rabbitmq
     - once in the rabbitmq dashboard navigate to queues to see list of message in queue
     - create another post request from "http://localhost:8080/users" to verify if messages are received by the message broker
