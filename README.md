@@ -17,10 +17,10 @@
         - notifications
 
  - cd users
- - run "composer install" 
+ - run "composer install"  (if you do not have composer you need to run it inside the container, go to the EXTRA STEP at the bottom of read.me)
  - cd ..
  - cd notifications
- - run "composer install"
+ - run "composer install" (if you do not have composer you need to run it inside the container, go to the EXTRA STEP at the bottom of read.me)
  - cd ..
  - you should be returned in the project root directory
         
@@ -125,3 +125,27 @@
   
 
 
+EXTRA STEP
+        make sure your container is built and running (users OR notifications service)
+        
+        1.0 :
+        
+                - open terminal
+                - cd to project directory
+                - cd users
+                - run "docker exec -ti users-web-1 bash"
+                - cd html
+                - run "composer install" this will install the symfony framework
+
+                
+        2.0
+                - open terminal
+                - cd to project directory
+                - cd notifications
+                - run "docker exec -ti notifications-web-1 bash"
+                - cd html
+                - run "composer install" this will install the symfony framework
+
+
+        
+        
