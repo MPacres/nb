@@ -82,5 +82,38 @@
   
  
     
+- if and if for some "weird reason" (no maker is installed in your device) that the make file does not work you can manually build the services using the docker compose command
+  
+  Messages service (Build this first):
+   
+      - open terminal
+      - go to root directory
+      - cd to messages
+      - docker compose build
+      - docker compose run -d
+      - messages service should be green in docker desktop. this runs the rabbitmq service
+      - !very important you need to build the messages service first since the symfony service(users, notifications) rely on its docker network
+
+
+  Users service
+  
+      - open terminal
+      - go to root directory
+      - cd to users
+      - docker compose build
+      - docker compose run -d
+      - supervisord.conf execution is configured in Dockerfile if this fails go to #Important 1.0
+      - if supervisord.conf fails migration will fail also so you need to manually run it. follow #Important 1.0 instruction
+
+  Notifications service
+  
+      - open terminal
+      - go to root directory
+      - cd to notifications
+      - docker compose build
+      - docker compose run -d
+      - supervisord.conf execution is configured in Dockerfile if this fails go to #Important 2.0
+      - if supervisord.conf fails consume:worker will fail also so you need to manually run it. follow #Important 2.0 instruction
+  
 
 
