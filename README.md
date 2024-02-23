@@ -7,7 +7,7 @@ request data will be sent in the message broker (rabbitmq)
 queued message will be consume by the notifications service
 consumed message will be written in log file (file_from_users${unixtimestamp}.log)
 
-# how to run the app
+# How to run the app
 open terminal navigate to project root directory
 run ls : files inside the root directory should be
         - Makefile
@@ -17,7 +17,8 @@ run ls : files inside the root directory should be
 run "make build-all" : this will build all the docker containers then run supervisord.conf
 after build is complete run "make start-selected" : this will run all the docker containers in your local machine
 
-* important
+
+# Important
   supervisord.conf might not run in your container (permission issue,etc...)
   supervisord.conf is required for notifications and users service
     - consume worker (notifications service)
@@ -39,7 +40,8 @@ after build is complete run "make start-selected" : this will run all the docker
      - run "php bin/console app:rabbitmq:consume"
      - restart docker container
 
- #testing the functionality
+ # Testing the functionality
+ 
  users service : 
    - open postman
    - create a POST request
@@ -48,19 +50,22 @@ after build is complete run "make start-selected" : this will run all the docker
    - send request
 
   validate if data is saved in the database:
-   - open mysql workbench
-   - connect to localhost:3026 , database: users, username:assessment, password:assessment
-     * select users database
-     * execute command "select * from users"
-     * it should contain the user information that you send by the post request in users service ("http://localhost:8080/users")
+  
+    - open mysql workbench
+    - connect to localhost:3026 , database: users, username:assessment, password:assessment
+        * select users database
+        * execute command "select * from users"
+        * it should contain the user information that you send by the post request in users service ("http://localhost:8080/users")
 
   validate if data is sent in the message broker:
+  
     - open browser type "http://localhost:15672/"
     - login credentials is in "users/docker-compose.yaml" or username:message, password:message, host:rabbitmq
     - once in the rabbitmq dashboard navigate to queues to see list of message in queue
     - create another post request from "http://localhost:8080/users" to verify if messages are received by the message broker
 
-  validate if message is consume by notifications service
+  validate if message is consume by notifications service:
+  
     - open terminal
     - go to root directory
     - cd notifications
