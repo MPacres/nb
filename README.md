@@ -20,7 +20,9 @@
  - run "composer install" 
  - cd ..
  - cd notifications
- - run "composer install" 
+ - run "composer install"
+ - cd ..
+ - you should be returned in the project root directory
         
 - run "make build-all" : this will build all the docker containers then run supervisord.conf
 
